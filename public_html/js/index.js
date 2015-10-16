@@ -29,7 +29,8 @@ $(document).ready(function (){
     
     btn_guardar.on('click', function (){
         
-        if(text_area.val() === ''){           
+        if(text_area.val() === ''){ 
+            mensaje.empty();
             mensaje.append(error);
         }else{
             task = text_area.val();
@@ -86,11 +87,13 @@ Tareas.prototype.Tabla = function (){
 
 Tareas.prototype.Insertar = function (task){
 
-    var db, SqlInsert, SqlConsulta, cantidad, cero, fila;
+    var db, SqlInsert, SqlConsulta, cantidad, cero, fila, mensaje, success;
 
     db = tareas.CrearDB();
     SqlInsert = 'INSERT INTO Tareas(fila, tarea) VALUES(?,?)';
     SqlConsulta = 'SELECT * FROM Tareas';
+    mensaje = $("#mensaje");
+    success = 'Tarea guardada';
     cero = 0;    
 
     db.transaction(function (tx){
@@ -103,9 +106,13 @@ Tareas.prototype.Insertar = function (task){
             if(cantidad === cero){
                 fila = cantidad + 1;
                 tx.executeSql(SqlInsert,[fila, task]);
+                mensaje.empty();
+                mensaje.append(success);
             }else{
                 fila = cantidad + 1;
                 tx.executeSql(SqlInsert,[fila, task]);
+                mensaje.empty();
+                mensaje.append(success);
             }
 
         });
