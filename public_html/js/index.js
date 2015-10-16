@@ -34,7 +34,7 @@ $(document).ready(function (){
             mensaje.append(error);
         }else{
             task = text_area.val();
-            text_area.html('');
+            text_area.val('');
             tareas.Insertar(task);
         }
         
@@ -183,15 +183,18 @@ Tareas.prototype.Consultar = function (){
 
 Tareas.prototype.Eliminar = function (fila){
              
-     var db, sqlDelete;
+     var db, sqlDelete, mensaje, eliminado;
      //console.log(fila);
 
      db = tareas.CrearDB();
      sqlDelete = 'DELETE FROM Tareas WHERE fila = ?';
+     mensaje = $("#mensaje");
+     eliminado = 'Tarea eliminada';
 
      db.transaction(function(tx){
          
              tx.executeSql(sqlDelete, [fila]);
+             mensaje.append(eliminado);
              tareas.Consultar();
         
      });
