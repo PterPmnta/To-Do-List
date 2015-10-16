@@ -87,13 +87,14 @@ Tareas.prototype.Tabla = function (){
 
 Tareas.prototype.Insertar = function (task){
 
-    var db, SqlInsert, SqlConsulta, cantidad, cero, fila, mensaje, success;
+    var db, SqlInsert, SqlConsulta, cantidad, cero, fila, mensaje, success, contador;
 
     db = tareas.CrearDB();
     SqlInsert = 'INSERT INTO Tareas(fila, tarea) VALUES(?,?)';
     SqlConsulta = 'SELECT * FROM Tareas';
     mensaje = $("#mensaje");
     success = 'Tarea guardada';
+    contador = $("#contador");
     cero = 0;    
 
     db.transaction(function (tx){
@@ -108,11 +109,15 @@ Tareas.prototype.Insertar = function (task){
                 tx.executeSql(SqlInsert,[fila, task]);
                 mensaje.empty();
                 mensaje.append(success);
+                var cero = 0;
+                contador.html(cero);
             }else{
                 fila = cantidad + 1;
                 tx.executeSql(SqlInsert,[fila, task]);
                 mensaje.empty();
                 mensaje.append(success);
+                var cero = 0;
+                contador.html(cero);
             }
 
         });
