@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    
+    <head>
+        <title>Articulo WebSql</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="materialize/css/materialize.min.css" rel="stylesheet" type="text/css"/>
+        <link href="awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        
+    </head>
+    
+    <body>
+        
+        <nav>
+           <div class="nav-wrapper green">
+                <a href="#" class="brand-logo center">Lista To-Do</a>               
+           </div>
+        </nav>
+        
+        <div class="container">
+            
+            
+            
+            <br>
+            <div class="row">
+                
+                <div class="col s12 m6 l3">
+                    
+                    <div class="row">
+                        <br>
+                        <div class="center">
+                            <label id="mensaje"></label>
+                        </div>
+                      <div class="input-field col s12">
+                        
+                        
+                        <br>
+                        <span class="badge" id="contador"></span>
+                        <textarea id="textarea1" class="materialize-textarea" maxlength="50"></textarea>
+                        <label for="textarea1">Tarea</label>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="waves-block btn green darken-1" id="btn-guardar">Guardar</div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="col s12 m6 l9">
+                    
+                    <table>
+                        <thead>
+                          <tr>
+                              <th data-field="tarea">Tareas</th>                              
+                          </tr>
+                        </thead>
+
+                        <tbody id="lista">
+                          
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+        <script src="jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="materialize/js/materialize.min.js" type="text/javascript"></script>
+        <script src="js/index.js" type="text/javascript"></script>
+        
+    </body>
+    
+</html>
